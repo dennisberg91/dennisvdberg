@@ -2,7 +2,9 @@
   "name": "dennisvdberg",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
+       "start": "forever start app.js",
+    "stop": "forever stopall",
+	 "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
