@@ -1,0 +1,8 @@
+<agm-map [latitude]="lat" [zoom]="zoom" [longitude]="lng" style="height: 300px;">
+  <agm-marker *ngFor="let marker of markers" [latitude]="marker.lat" [longitude]="marker.lng">
+    <agm-info-window [disableAutoPan]="true">
+      <h2>{{ marker.title }}</h2>
+      <p>{{ marker.body }}</p>
+    </agm-info-window>
+  </agm-marker>
+</agm-map>

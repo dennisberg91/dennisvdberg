@@ -1,0 +1,47 @@
+<div class="container">
+  <nav class="nav">
+    <a class="nav-link active" (click)="setCurrentTab('streamers')">Streamers API</a>
+    <a class="nav-link" (click)="setCurrentTab('follow')">Follow API</a>
+    <a class="nav-link" (click)="setCurrentTab('top_games')">Top games</a>
+  </nav>
+  <ng-container *ngIf="twitchTab === 'follow'">
+    <app-twitch-follow [twitch]="this"></app-twitch-follow>
+  </ng-container>
+  <ng-container *ngIf="twitchTab === 'top_games'">
+    <app-twitch-top-games [twitch]="this"></app-twitch-top-games>
+  </ng-container>
+  <ng-container *ngIf="highlightedStreamer && twitchTab === 'streamers'">
+    <div class="row">
+    <div class="card bg-dark text-white">
+      <img [src]="highlightedStreamer.logo" class="card-img" alt="...">
+      <div class="card-img-overlay" style="background-color:rgba(0, 0, 0, 0.5);">
+        <h5 class="card-title">{{ highlightedStreamer.display_name }}</h5>
+        <p class="card-text">{{ highlightedStreamer.bio }}</p>
+        <button [disabled]="highlightedStreamer.online === true ? false : true" class="btn btn-primary">WATCH</button>
+        <a [href]="highlightedStreamer.stream_url" *ngIf="highlightedStreamer.online === true" class="stretched-link"></a>
+      </div>
+    </div>
+  </div>
+  </ng-container>
+  <ng-container *ngIf="twitchTab === 'streamers'">
+    <h2>Twitch users</h2>
+    <input class="form-control mb-4 form-control-lg" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching for a project">
+    <div class="row">
+      <div *ngFor="let twitchUser of twitchUsers | filter:searchText" style="padding: 0" class="card bg-dark text-white col-12 col-md-4 col-lg-3 mb-4">
+        <img [src]="twitchUser.logo" class="card-img-top" alt="...">
+        <div *ngIf="twitchUser.online === true" class="progress">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div *ngIf="twitchUser.online === false" class="progress">
+          <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="card-img-overlay" style="background-color:rgba(0, 0, 0, 0.5);">
+          <h5 class="card-title">{{ twitchUser.display_name }}</h5>
+          <p class="card-text">{{ twitchUser.bio }}</p>
+          <button [disabled]="twitchUser.online === true ? false : true"  class="btn btn-primary">WATCH</button>
+          <a [href]="twitchUser.stream_url" *ngIf="twitchUser.online === true" class="stretched-link"></a>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

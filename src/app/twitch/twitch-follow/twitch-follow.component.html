@@ -1,0 +1,16 @@
+<form class="twitch-follow-form">
+  <div class="form-group">
+    <label for="from_name">Van user</label>
+    <input type="text" class="form-control" [(ngModel)]="from_name" name="from_name" id="from_name" placeholder="Username" required>
+  </div>
+
+  <div class="form-group">
+    <label for="to_name">To user</label>
+    <input type="text" class="form-control" [(ngModel)]="to_name" name="to_name" id="to_name" placeholder="Username" required>
+  </div>
+
+  <button type="button" [disabled]="!from_name || !to_name" (click)="onSubmit()">Start</button>
+</form>
+
+{{isFollowed}}
+{{counterFollow}}

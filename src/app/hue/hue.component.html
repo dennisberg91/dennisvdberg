@@ -1,0 +1,6 @@
+<div class="card col-12 col-md-4 col-lg-3 mb-4" *ngFor="let light of lights">
+  <div class="card-body">
+      <h4><span [className]="light.state === 'On' ? 'badge badge-success' : 'badge badge-danger'">{{ light.state }}</span></h4>
+      <h5 class="card-title">{{ light.name }}</h5>
+  </div>
+</div>

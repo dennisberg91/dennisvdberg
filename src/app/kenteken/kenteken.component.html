@@ -1,0 +1,22 @@
+<div class="row">
+  <form class="kenteken-form col-12 col-md-4 col-lg-3 mb-4">
+      <div class="form-group">
+        <label for="kenteken">Kenteken</label>
+        <input type="text" class="form-control" [(ngModel)]="kenteken" name="kenteken" id="kenteken" placeholder="1TKJ22" required>
+      </div>
+      <button type="button" [disabled]="!kenteken" (click)="onSubmit()">Start</button>
+    </form>
+  <div *ngFor="let vehicle of vehicles | filter:searchText" class="card col-12 col-md-4 col-lg-3 mb-4">
+    {{vehicle.kenteken}}
+    {{vehicle.merk}}
+    {{vehicle.voertuigsoort}}
+    {{vehicle.catalogusprijs}}
+    {{vehicle.handelsbenaming}}
+    {{vehicle.vervaldatum_apk}}
+    {{vehicle.bruto_bpm}}
+    {{vehicle.cilinderinhoud}}
+    {{vehicle.datum_eerste_toelating}}
+    {{vehicle.datum_eerste_afgifte_nederland}}
+    {{vehicle.massa_rijklaar}}
+  </div>
+</div>

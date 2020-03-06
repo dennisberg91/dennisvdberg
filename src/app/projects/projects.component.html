@@ -1,0 +1,28 @@
+<div class="container">
+  <input class="form-control mb-4 form-control-lg" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching for a project">
+  <ng-container *ngIf="!activeProject">
+    <h2>Projects</h2>
+    <div class="row">
+      <div *ngFor="let project of projects | filter:searchText" class="card col-12 col-md-4 col-lg-3 mb-4">
+        <img [src]="project.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ project.title }}</h5>
+          <p class="card-text">{{ project.body }}</p>
+          <a href="#" (click)="get_project(project)" class="btn btn-primary stretched-link"></a>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="activeProject">
+    <h2>{{ activeProject.title }}</h2>
+    <div class="row">
+      <div class="card col-12 mb-4">
+        <div (click)="unset_project()" class="close">x</div>
+        <img [src]="activeProject.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ activeProject.body }}</h5>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
