@@ -24,7 +24,7 @@ npm install --cache /tmp/empty-cache'''
     
     stage('TEST') {
       steps {
-        sh 'npm run cy:run'
+        sh 'npx cypress run'
       }
     }
 
