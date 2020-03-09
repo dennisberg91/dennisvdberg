@@ -21,18 +21,18 @@ npm install --cache /tmp/empty-cache'''
         sh 'npm run-script build'
       }
     }
+    
+        stage('TEST') {
+      steps {
+        sh 'cypress run'
+      }
+    }
 
     stage('DEPLOY') {
       steps {
         echo 'Deploy code'
         sh '''rm -rf /var/www/dennisvdberg
 mv  /var/lib/jenkins/workspace/dennisvdberg.nl_master/dist/dennisvdberg /var/www'''
-      }
-    }
-
-    stage('TEST') {
-      steps {
-        sh 'cypress run'
       }
     }
 
