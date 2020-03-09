@@ -24,7 +24,7 @@ npm install --cache /tmp/empty-cache'''
     
     stage('TEST') {
       steps {
-        sh 'cypress run'
+        sh 'npm run cypress:ci'
       }
     }
 
@@ -39,6 +39,5 @@ mv  /var/lib/jenkins/workspace/dennisvdberg.nl_master/dist/dennisvdberg /var/www
   }
   tools {
     nodejs 'npm'
-    cypress 'cy'
   }
 }
