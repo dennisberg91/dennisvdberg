@@ -1,7 +1,5 @@
 pipeline {
   agent any
- 
-  tools {nodejs "npm"}
   stages {
     stage('SCM') {
       steps {
@@ -13,9 +11,7 @@ pipeline {
     stage('BUILD') {
       steps {
         echo 'Building project'
-        sh '''rm -rf ./node_modules
-npm install --cache /tmp/empty-cache
-npm run-script build'''
+        sh 'npm run-script build'
       }
     }
 
@@ -27,5 +23,15 @@ mv  /var/lib/jenkins/workspace/dennisvdberg.nl_master/dist/dennisvdberg /var/www
       }
     }
 
+    stage('NPM') {
+      steps {
+        sh '''rm -rf ./node_modules
+npm install --cache /tmp/empty-cache'''
+      }
+    }
+
+  }
+  tools {
+    nodejs 'npm'
   }
 }
