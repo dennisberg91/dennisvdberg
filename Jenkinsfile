@@ -9,22 +9,54 @@ pipeline {
     }
 
     stage('NPM') {
-      steps {
-        sh '''rm -rf ./node_modules
+      parallel {
+        stage('NPM') {
+          steps {
+            echo 'Dependencies'
+          }
+        }
+
+        stage('') {
+          steps {
+            sh '''rm -rf ./node_modules
 npm install --cache /tmp/empty-cache'''
+          }
+        }
+
       }
     }
 
     stage('BUILD') {
-      steps {
-        echo 'Building project'
-        sh 'npm run-script build'
+      parallel {
+        stage('BUILD') {
+          steps {
+            echo 'Building project'
+          }
+        }
+
+        stage('') {
+          steps {
+            sh 'npm run-script build'
+          }
+        }
+
       }
     }
-    
+
     stage('TEST') {
-      steps {
-        sh 'npx cypress run'
+      parallel {
+        stage('TEST') {
+          steps {
+            echo 'Starting tests'
+          }
+        }
+
+        stage('Cypress') {
+          steps {
+            sh 'npx cypress run'
+          }
+        }
+
       }
     }
 
