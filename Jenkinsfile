@@ -23,7 +23,7 @@ npm run-script build'''
       steps {
         echo 'Deploy code'
         sh '''rm -rf /var/www/dennisvdberg
-mv  /var/lib/jenkins/workspace/dennisvdberg.nl_master@tmp/dist/dennisvdberg /var/www'''
+mv  /var/lib/jenkins/workspace/dennisvdberg.nl_master/dist/dennisvdberg /var/www'''
       }
     }
 
