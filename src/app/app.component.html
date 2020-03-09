@@ -4,7 +4,7 @@
 <!-- <app-hue></app-hue> -->
 <app-projects *ngIf="currentPage === 'projects'"></app-projects>
 <!-- <app-youtube></app-youtube> -->
-<app-traffic></app-traffic>
+<app-traffic *ngIf="currentPage === 'traffic'"></app-traffic>
 <app-kenteken *ngIf="currentPage === 'kenteken'"></app-kenteken>
 <app-twitch *ngIf="currentPage === 'twitch'"></app-twitch>
 <app-footer></app-footer>
