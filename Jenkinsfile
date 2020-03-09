@@ -16,7 +16,7 @@ pipeline {
           }
         }
 
-        stage('') {
+        stage('Npm') {
           steps {
             sh '''rm -rf ./node_modules
 npm install --cache /tmp/empty-cache'''
@@ -34,7 +34,7 @@ npm install --cache /tmp/empty-cache'''
           }
         }
 
-        stage('') {
+        stage('Npm') {
           steps {
             sh 'npm run-script build'
           }
