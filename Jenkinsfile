@@ -12,7 +12,11 @@ npm install --cache /tmp/empty-cache'''
         sh '''npm run-script build'''
       }
     },
-    stage('Deploy') {
+        stage('Test') {
+      steps {
+        sh ''''''
+      }
+    },    stage('Deploy') {
       steps {
         sh '''rm -rf /var/www/dennisvdberg
 mv /var/lib/jenkins/workspace/dennisvdberg/dist/dennisvdberg /var/www'''
