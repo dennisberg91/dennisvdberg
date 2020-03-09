@@ -38,7 +38,7 @@ mv  /var/lib/jenkins/workspace/dennisvdberg.nl_master/dist/dennisvdberg /var/www
 
   }
   tools {
-    nodejs 'npm',
+    nodejs 'npm'
     cypress 'cy'
   }
 }
