@@ -14,7 +14,7 @@ npm install --cache /tmp/empty-cache'''
     },
         stage('Test') {
       steps {
-        sh ''''''
+        echo '''test'''
       }
     },    stage('Deploy') {
       steps {
