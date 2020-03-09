@@ -8,9 +8,9 @@ pipeline {
       }
     }
 
-    stage('NPM') {
+    stage('INSTALL') {
       parallel {
-        stage('NPM') {
+        stage('Current') {
           steps {
             echo 'Dependencies'
           }
@@ -28,7 +28,7 @@ npm install --cache /tmp/empty-cache'''
 
     stage('BUILD') {
       parallel {
-        stage('BUILD') {
+        stage('Current') {
           steps {
             echo 'Building project'
           }
@@ -45,7 +45,7 @@ npm install --cache /tmp/empty-cache'''
 
     stage('TEST') {
       parallel {
-        stage('TEST') {
+        stage('Current') {
           steps {
             echo 'Starting tests'
           }
