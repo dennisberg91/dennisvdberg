@@ -22,7 +22,7 @@ npm install --cache /tmp/empty-cache'''
       }
     }
     
-        stage('TEST') {
+    stage('TEST') {
       steps {
         sh 'cypress run'
       }
