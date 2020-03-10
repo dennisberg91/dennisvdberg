@@ -61,10 +61,20 @@ npm install --cache /tmp/empty-cache'''
     }
 
     stage('DEPLOY') {
-      steps {
-        echo 'Deploy code'
-        sh '''rm -rf /var/www/dennisvdberg
-mv  /var/lib/jenkins/workspace/dennisvdberg.nl_master/dist/dennisvdberg /var/www'''
+      parallel {
+        stage('DEPLOY') {
+          steps {
+            echo 'Deploy code'
+          }
+        }
+
+        stage('Rsync') {
+          steps {
+            sh '''rsync -av --delete /var/lib/jenkins/workspace/dennisvdberg.nl_master/dist/dennisvdberg/ /var/www/dennisvdberg/
+'''
+          }
+        }
+
       }
     }
 
