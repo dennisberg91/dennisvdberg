@@ -1,22 +1,24 @@
 <div class="row">
-  <form class="kenteken-form col-12 col-md-4 col-lg-3 mb-4">
-      <div class="form-group">
-        <label for="kenteken">Kenteken</label>
-        <input type="text" class="form-control" [(ngModel)]="kenteken" name="kenteken" id="kenteken" placeholder="1TKJ22" required>
-      </div>
-      <button type="button" [disabled]="!kenteken" (click)="onSubmit()">Start</button>
-    </form>
-  <div *ngFor="let vehicle of vehicles | filter:searchText" class="card col-12 col-md-4 col-lg-3 mb-4">
-    {{vehicle.kenteken}}
-    {{vehicle.merk}}
-    {{vehicle.voertuigsoort}}
-    {{vehicle.catalogusprijs}}
-    {{vehicle.handelsbenaming}}
-    {{vehicle.vervaldatum_apk}}
-    {{vehicle.bruto_bpm}}
-    {{vehicle.cilinderinhoud}}
-    {{vehicle.datum_eerste_toelating}}
-    {{vehicle.datum_eerste_afgifte_nederland}}
-    {{vehicle.massa_rijklaar}}
+  <form class="kenteken-form col-12 mb-4">
+    <div class="form-group col-12 col-md-6 m-auto">
+      <label for="kenteken">Kenteken</label>
+      <input type="text" class="form-control" [(ngModel)]="kenteken"
+        name="kenteken" id="kenteken" placeholder="1TKJ22" required>
+    </div>
+    <button type="button" [disabled]="!kenteken"
+      (click)="onSubmit()">Start</button>
+  </form>
+  <div *ngFor="let vehicle of vehicles | filter:searchText"
+    class="col-12 col-md-6 m-auto mb-4">
+    <ul class="list-group">
+      <li class="list-group-item active"> {{vehicle.kenteken}}</li>
+      <li class="list-group-item">Merk: {{vehicle.merk}}</li>
+      <li class="list-group-item">Inrichting: {{vehicle.voertuigsoort}}</li>
+      <li class="list-group-item">Nieuwprijs:
+        {{vehicle.catalogusprijs | currency:'EUR'}}</li>
+      <li class="list-group-item">APK tot: {{vehicle.vervaldatum_apk}}</li>
+      <li class="list-group-item">Cilinderinhoud: {{vehicle.cilinderinhoud}}
+      </li>
+    </ul>
   </div>
 </div>
