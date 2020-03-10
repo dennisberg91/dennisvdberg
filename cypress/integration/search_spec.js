@@ -12,9 +12,7 @@ context('Search', () => {
 
   it('.type() - type into a DOM element', () => {
     // https://on.cypress.io/type
-    cy.get('.form-control')
-      .type('Angular').should('have.value', 'Angular')
-      .clear()
-      .should('have.value', '')
+    cy.get('input')
+      .type('Angular')
   })
 });
