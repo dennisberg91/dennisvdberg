@@ -75,6 +75,12 @@ npm install --cache /tmp/empty-cache'''
           }
         }
 
+        stage('Jira') {
+          steps {
+            jiraSendBuildInfo(branch: 'master', site: 'dennisvdberg')
+          }
+        }
+
       }
     }
 
