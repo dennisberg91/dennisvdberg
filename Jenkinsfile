@@ -77,7 +77,7 @@ npm install --cache /tmp/empty-cache'''
 
         stage('Jira') {
           steps {
-            jiraSendBuildInfo(branch: 'master', site: 'dennisvdberg')
+            jiraSendBuildInfo(branch: 'master', site: 'dennisvdberg91.atlassian.net')
           }
         }
 
