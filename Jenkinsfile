@@ -75,13 +75,6 @@ npm install --cache /tmp/empty-cache'''
           }
         }
 
-        stage('Jira') {
-          steps {
-            jiraSendBuildInfo(branch: 'DEN-1', site: 'dennisvdberg91.atlassian.net')
-            jiraComment(issueKey: 'DEN-1', body: 'Hi')
-          }
-        }
-
       }
     }
 
