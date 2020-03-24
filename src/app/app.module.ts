@@ -23,38 +23,43 @@ import { TwitchFollowComponent } from './twitch/twitch-follow/twitch-follow.comp
 import { TwitchTopGamesComponent } from './twitch/twitch-top-games/twitch-top-games.component';
 import { KentekenComponent } from './kenteken/kenteken.component';
 import { TrafficComponent } from './traffic/traffic.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TwitchEmbedComponent } from './twitch/twitch-embed/twitch-embed.component';
+import { CryptoComponent } from './crypto/crypto.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    ProjectsComponent,
-    CarouselComponent,
-    FooterComponent,
-    SafePipe,
-    HueComponent,
-    YoutubeComponent,
-    GoogleMapsComponent,
-    TwitchComponent,
-    TwitchFollowComponent,
-    TwitchTopGamesComponent,
-    KentekenComponent,
-    TrafficComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    Ng2SearchPipeModule,
-    NgxYoutubePlayerModule.forRoot(),
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAn8mKODdRUqGWI9i5xLrheK_ua871dZVI'
-    }),
-    AgmDirectionModule
-  ],
-  providers: [
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		NavbarComponent,
+		ProjectsComponent,
+		CarouselComponent,
+		FooterComponent,
+		SafePipe,
+		HueComponent,
+		YoutubeComponent,
+		GoogleMapsComponent,
+		TwitchComponent,
+		TwitchFollowComponent,
+		TwitchEmbedComponent,
+		TwitchTopGamesComponent,
+		KentekenComponent,
+		TrafficComponent,
+		CryptoComponent
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		HttpClientModule,
+		FormsModule,
+		Ng2SearchPipeModule,
+		NgxYoutubePlayerModule.forRoot(),
+		AgmCoreModule.forRoot({
+			apiKey: 'AIzaSyAn8mKODdRUqGWI9i5xLrheK_ua871dZVI'
+		}),
+		AgmDirectionModule,
+		BrowserAnimationsModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

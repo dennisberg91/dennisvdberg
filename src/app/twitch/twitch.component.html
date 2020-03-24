@@ -9,6 +9,7 @@
     <app-twitch-follow [twitch]="this"></app-twitch-follow>
   </ng-container>
   <ng-container *ngIf="twitchTab === 'top_games'">
+    <app-twitch-embed [twitch]="this"></app-twitch-embed>
     <app-twitch-top-games [twitch]="this"></app-twitch-top-games>
   </ng-container>
   <ng-container *ngIf="highlightedStreamer && twitchTab === 'streamers'">
